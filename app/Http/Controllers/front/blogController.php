@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\category;
 use App\posts;
 use App\tag;
+use App\user;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 class blogController extends Controller
 {
     /**
@@ -17,10 +20,31 @@ class blogController extends Controller
     public function index()
     {
         //
+       // $role = Role::findById(4);
+       //$permession = Permission::findById(7);
+       $user = User::find(6);
+       //$role = Role::create(['name' => 'supp']);
+       //$permession = Permission::create(['name' => 'delett']);
+        //$permession = Permission::create(['name' => 'creator']);
+
+       // $role = Role::create(['name' => 'deletor']);
+
+        //$role->givePermissionTo($permession);
+        $user->givePermissionTo('editor');
+        //$user->assignRole('deletor');
+        //$para = $user->permissions;
+        //$para = $user->getAllpermissions();
+        $para = $user->getDirectPermissions();
+       // $para = $user->getPermissionsViaRoles();
+        $para = $user->getRoleNames();
+       //
+      //$permession->assignRole($role);
+      // $role->revokePermissionTo($permession);
+       // $permession->removeRole($role);
         $tag = Tag::all();
         $cat = Category::all();
         $post = Posts::all();
-        return view('front/acceuil')->with(compact('post', 'cat', 'tag'));
+        return view('front/acceuil')->with(compact('post', 'cat', 'tag', 'para'));
     }
 
     /**

@@ -37,5 +37,8 @@ Route::resource('/tag','back\tagController');
 Route::resource('/blog','front\blogController');
 Route::resource('/contact','front\contactController');
 Route::resource('/categ','front\categController');
+Route::resource('/role', 'back\roleController');
+Route::resource('/permission', 'back\permissionsController');
+
 
 

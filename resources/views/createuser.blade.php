@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -89,7 +91,7 @@ desired effect
                     <a href="#">
                       <div class="pull-left">
                         <!-- User Image -->
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src={{ asset('dist/img/user2-160x160.jpg') }} class="img-circle" alt="User Image">
                       </div>
                       <!-- Message title and timestamp -->
                       <h4>
@@ -174,14 +176,14 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src={{ asset('dist/img/user2-160x160.jpg') }} class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">Alexandre Pierce</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src={{ asset('dist/img/user2-160x160.jpg') }} class="img-circle" alt="User Image">
 
                 <p>
                   {{ auth()->user()->name}} selmi - Web Developer
@@ -246,7 +248,7 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src={{ asset('dist/img/user2-160x160.jpg') }} class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Alexander Pierce</p>
@@ -302,6 +304,22 @@ desired effect
                   <li><a href="{{route('tag.create')}}">add tag</a></li>
               </ul>
           </li>
+          <li class="treeview">
+              <a href="#"><i class="fa fa-link"></i> <span>Role</span>
+              </a>
+              <ul class="treeview-menu">
+                  <li><a href="{{route('role.index')}}">Liste roles</a></li>
+                  <li><a href="{{route('role.create')}}">add role</a></li>
+              </ul>
+          </li>
+          <li class="treeview">
+              <a href="#"><i class="fa fa-link"></i> <span>Permissions</span>
+              </a>
+              <ul class="treeview-menu">
+                  <li><a href="{{route('permission.index')}}">Liste permissions</a></li>
+                  <li><a href="{{route('permission.create')}}">add permission</a></li>
+              </ul>
+          </li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -328,18 +346,20 @@ desired effect
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
-       <form>
-  <div class="form-group">
-    <label for="id">ID</label>
-    <input type="text" class="form-control" id="id"  placeholder="Enter ID">
-  </div>
+       <form action="{{ route('admin.store') }}" method="POST" enctype="multipart/form-data">
+           {{ csrf_field() }}
+  <div class="form-group" >
+
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" placeholder="Enter name">
+    <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">
   </div>
   <div class="form-group">
-        <label for="email">Email</label>
-    <input type="email" class="form-control" id="email">
+               <label for="email">Email</label>
+               <input type="email" class="form-control" id="email" name="email">
+           </div>
+      <label for="id">Password</label>
+      <input type="text" class="form-control" id="password" name="password"  placeholder="Enter ID">
   </div>
   <button type="submit" class="btn btn-primary">Add</button>
 </form>

@@ -9,7 +9,8 @@ use App\Posts;
 use App\Tag;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image as InterventionImage;
-
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class postsController extends Controller
 {

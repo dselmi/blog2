@@ -9,16 +9,11 @@
 
                     <div class="post-content-body">
 
-<p>{{$post->description}}</p>
+                       <p>{{$post->description}}</p>
 
                                     <div class="image element-animate" data-animate-effect="fadeIn">
                                         <img src="{{ url('images/' .$post->file )}}" alt="">
                                     </div>
-
-
-
-
-
 
 
 
@@ -38,7 +33,7 @@
         </div>
         <!-- END sidebar -->
 
-
+        </div>
 
     </section>
 

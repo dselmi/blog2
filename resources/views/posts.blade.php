@@ -302,6 +302,24 @@ desired effect
               </ul>
           </li>
 
+          <li class="treeview">
+              <a href="#"><i class="fa fa-link"></i> <span>Role</span>
+              </a>
+              <ul class="treeview-menu">
+                  <li><a href="{{route('role.index')}}">Liste roles</a></li>
+                  <li><a href="{{route('role.create')}}">add role</a></li>
+              </ul>
+          </li>
+
+          <li class="treeview">
+              <a href="#"><i class="fa fa-link"></i> <span>Permissions</span>
+              </a>
+              <ul class="treeview-menu">
+                  <li><a href="{{route('permission.index')}}">Liste permissions</a></li>
+                  <li><a href="{{route('permission.create')}}">add permission</a></li>
+              </ul>
+          </li>
+
       </ul>
       <!-- /.sidebar-menu -->
     </section>
