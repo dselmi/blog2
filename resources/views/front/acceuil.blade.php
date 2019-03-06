@@ -1,4 +1,3 @@
-@can('editor')
 @extends('layouts.template')
 @section('contenu')
     <section class="site-section py-sm">
@@ -30,11 +29,7 @@
 
                                     </div>
 
-                                    <div>
-                                        @foreach($para as $p)
-                                            {{$p}}
-                                        @endforeach
-                                    </div>
+
                                 </div>
                             </a>
                         </div>
@@ -122,4 +117,3 @@
 
     @endsection
 
-@endrole

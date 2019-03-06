@@ -22,10 +22,18 @@ class permissionsController extends Controller
 
         return view('role-perme/createpermissions');
     }
-    public function store(PermissionRequest $request)
+    public function store(Request $request)
     {
         //
-        Permission::create($request->all());
+        //Permission::create($request->all());
+        $this->validate($request,[
+            'name'=>'required',
+        ]);
+
+        $perm = new Permission();
+        $perm->name = $request->name;
+        $perm->save();
+
         return redirect()->route('permission.index');
     }
     public function edit($id)

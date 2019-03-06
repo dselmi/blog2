@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\back;
 
 use App\Category;
+use App\Comment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Posts;
@@ -65,7 +66,7 @@ class postsController extends Controller
         $path = Storage::disk('images')->put('', $request->file('image'));
         $image = InterventionImage::make($request->file('image'))->widen(100);
 
-        Storage::disk('thumbs')->put($path, $image->encode());
+       Storage::disk('thumbs')->put($path, $image->encode());
         $post = new Posts();
         $post->title = $request->title;
         $post->description = $request->description;
@@ -88,7 +89,8 @@ class postsController extends Controller
      */
     public function show($id)
     {
-        //
+
+        return view('front/blog');
     }
 
     /**
@@ -137,6 +139,7 @@ class postsController extends Controller
 
     }
 
+
     /**
      * Remove the specified resource from storage.
      *
@@ -151,4 +154,6 @@ class postsController extends Controller
         return redirect()->route('posts.index');
 
     }
+
+
 }

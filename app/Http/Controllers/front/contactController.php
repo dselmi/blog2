@@ -9,7 +9,7 @@ use App\HTTP\Requests\ContactRequest;
 use App\Contact;
 
 use Illuminate\Support\Facades\Mail;
-
+use App\Tag;
 class contactController extends Controller
 {
     /**
@@ -21,9 +21,9 @@ class contactController extends Controller
     {
         //
         $post = Posts::all();
-        $tag= Tag::all();
+        $tags = Tag::all();
         $cat = Category::all();
-        return view('front/contact')->with(compact('cat', 'post', 'tag'));
+        return view('front/contact' , compact('cat', 'tags'));
     }
 
     /**
@@ -34,9 +34,9 @@ class contactController extends Controller
     public function create()
     {
         //
-        $tag= Tag::all();
+     /*   $tag= Tag::all();
         $cat = Category::all();
-        return view('front/contact', compact('cat'), compact('tag'));
+        return view('front/contact', compact('cat', 'tag'));*/
     }
 
     /**
@@ -62,8 +62,9 @@ class contactController extends Controller
     public function show($id)
     {
         //
+        $tags = Tag::all();
         $cat = Category::all();
-        return view('front/contact', compact('cat'));
+        return view('front/contact', compact('cat'), compact( 'tags'));
     }
 
     /**

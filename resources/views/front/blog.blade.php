@@ -15,28 +15,41 @@
                                         <img src="{{ url('images/' .$post->file )}}" alt="">
                                     </div>
 
-
-
                 </div>
-
-
-
-
-
-
+                </div>
             </div>
 
-            <!-- END main-content -->
+                        <br>
+
+            <p> {{ $post->comment()->count() }} Commentaires</p>
+
+       @foreach($post->comment()->latest()->get() as $com)
+         <div>  {{$com->description}}
+         </div>
+       @endforeach
+       <form method="POST" action="{{ route('commentpost', $post->id)}}">
+               {{ csrf_field() }}
+
+
+           <textarea class="group-control" name="description" type="text" rows="3" cols="90">
+           </textarea>
+<br>
+               <button type="submit" style="width:150px; padding: 10px;" class="btn btn-block btn-secondary">Commenter</button>
+           </form>
+   @endsection
 
 
 
-        </div>
-        <!-- END sidebar -->
-
-        </div>
-
-    </section>
+   <!-- END main-content -->
 
 
 
-@endsection
+</div>
+<!-- END sidebar -->
+
+
+</section>
+
+
+
+

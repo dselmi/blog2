@@ -37,8 +37,14 @@ Route::resource('/tag','back\tagController');
 Route::resource('/blog','front\blogController');
 Route::resource('/contact','front\contactController');
 Route::resource('/categ','front\categController');
+Route::resource('tagg', 'front\taggController');
 Route::resource('/role', 'back\roleController');
 Route::resource('/permission', 'back\permissionsController');
+Route::resource('/tutoriel', 'back\tutorielController');
+Route::post('/{id}/commenter', 'front\blogController@add')->name('commentpost');
+Route::post('/{id}/commentertuto', 'back\tutorielController@add')->name('commenttuto');
+Route::resource('/tuto', 'front\tutoController');
+
 
 
 

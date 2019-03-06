@@ -44,10 +44,24 @@
                     <a class="dropdown-item" href="{{ route('categ.show', $cats->id)}}">{{$cats->name}}</a>
                     @endforeach
 
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tags</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown04">
+                            @foreach($tags as $tag)
+                                <a class="dropdown-item" href="{{ route('tagg.show', $tag->id)}}">{{ $tag->name }}</a>
+                            @endforeach
 
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href={{route("tuto.index")}}>Tutoriel</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href={{route("contact.index")}}>Contact</a>
                     </li>
+
                 </ul>
 
             </div>

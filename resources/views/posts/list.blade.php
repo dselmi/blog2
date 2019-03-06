@@ -43,6 +43,7 @@
 
                    <button type="submit" style="width:150px; padding: 10px;" class="btn btn-block btn-danger">Delete</button>
 </form>
+                               <a class="btn btn-block btn-info" style="width:150px" href="{{ route('posts.show', $post->id)}}">show</a>
 
                </td>
                </tr>

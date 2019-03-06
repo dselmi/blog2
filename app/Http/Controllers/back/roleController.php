@@ -32,13 +32,11 @@ class roleController extends Controller
         //
         $this->validate($request,[
             'name'=>'required',
-            'guard_name'=>'required'
         ]);
         $role = new Role();
         $role->name = $request->name;
-        $role->guard_name = $request->guard_name;
         $role->save();
-        $role->givePermissionTo($request->perm);
+        $role->syncPermissions($request->perm);
         return redirect()->route('role.index');
     }
     public function edit($id)
@@ -54,12 +52,14 @@ class roleController extends Controller
         //
         $this->validate($request,[
             'name'=>'required',
+            'perm'=>'required'
         ]);
-        $role = new Role();
-        $rol = $role::find($id);
+
+        $rol = Role::find($id);
 
         $rol->name = $request->name;
         $rol->save();
+        $rol->syncPermissions($request->perm);
         return redirect()->route('role.index');
 
     }

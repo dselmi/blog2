@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\front;
 
+use App\Category;
+use App\Tutoriel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Category;
-use App\Posts;
 use App\Tag;
-class categController extends Controller
+use App\Posts;
+class taggController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +18,9 @@ class categController extends Controller
     public function index()
     {
         //
-        $tags= Tag::all();
         $cat = Category::all();
-        return view('front/contact', compact('cat'),  compact('tags'));
+        $tags = Tag::all();
+        return view('front/tag', compact('tags', 'cat'));
     }
 
     /**
@@ -30,9 +31,9 @@ class categController extends Controller
     public function create()
     {
         //
-     /*   $tag= Tag::all();
-        $cat = Category::all();
-        return view('front/contact', compact('cat'),  compact('tag'));*/
+      /*  $cat = Category::all();
+        $tag = Tag::all();
+        return view('front/tag', compact('tag', 'cat'));*/
     }
 
     /**
@@ -55,13 +56,12 @@ class categController extends Controller
     public function show($id)
     {
         //
-        $tags = Tag::all();
-        $catt = Category::find($id);
-        $post = Posts::all();
+        $tagg = Tag::find($id);
         $cat = Category::all();
-
-        return view('front/category')->with(compact('cat','post','catt','tags'));
-
+        $tags = Tag::all();
+        $post = Posts::all();
+        $tut = Tutoriel::all();
+        return view('front/tag')->with(compact('post','tags', 'cat', 'tagg', 'tut'));
     }
 
     /**

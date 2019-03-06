@@ -322,6 +322,14 @@ desired effect
                   <li><a href="{{route('permission.create')}}">add permission</a></li>
               </ul>
           </li>
+          <li class="treeview">
+              <a href="#"><i class="fa fa-link"></i> <span>Tutoriels</span>
+              </a>
+              <ul class="treeview-menu">
+                  <li><a href="{{route('tutoriel.index')}}">Liste tutos</a></li>
+                  <li><a href="{{route('tutoriel.create')}}">add tutos</a></li>
+              </ul>
+          </li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
