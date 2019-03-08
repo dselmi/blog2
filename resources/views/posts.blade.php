@@ -147,7 +147,7 @@ desired effect
                     <a href="#">
                       <!-- Task title and progress text -->
                       <h3>
-                        Design some buttons
+                        Design some buttons hi it s dorra
                         <small class="pull-right">20%</small>
                       </h3>
                       <!-- The progress bar -->
